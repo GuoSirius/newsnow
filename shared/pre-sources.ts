@@ -13,6 +13,30 @@ const Time = {
 }
 
 export const originSources = {
+  "rsswechat": {
+    name: "RSS@微信公众号",
+    color: "green",
+    home: "https://weixin.sogou.com",
+    sub: {
+      tech: {
+        title: "科技资讯",
+        column: "china",
+        type: "realtime",
+      },
+    },
+  },
+  "sougouwechat": {
+    name: "搜狗@微信公众号",
+    color: "green",
+    home: "https://weixin.sogou.com",
+    sub: {
+      tech: {
+        title: "科技资讯",
+        column: "china",
+        type: "realtime",
+      },
+    },
+  },
   "v2ex": {
     name: "V2EX",
     color: "slate",

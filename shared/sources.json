@@ -1,4 +1,42 @@
 {
+  "rsswechat": {
+    "redirect": "rsswechat-tech",
+    "name": "RSS@微信公众号",
+    "type": "realtime",
+    "column": "china",
+    "home": "https://weixin.sogou.com",
+    "color": "green",
+    "interval": 600000,
+    "title": "科技资讯"
+  },
+  "rsswechat-tech": {
+    "name": "RSS@微信公众号",
+    "type": "realtime",
+    "column": "china",
+    "home": "https://weixin.sogou.com",
+    "color": "green",
+    "interval": 600000,
+    "title": "科技资讯"
+  },
+  "sougouwechat": {
+    "redirect": "sougouwechat-tech",
+    "name": "搜狗@微信公众号",
+    "type": "realtime",
+    "column": "china",
+    "home": "https://weixin.sogou.com",
+    "color": "green",
+    "interval": 600000,
+    "title": "科技资讯"
+  },
+  "sougouwechat-tech": {
+    "name": "搜狗@微信公众号",
+    "type": "realtime",
+    "column": "china",
+    "home": "https://weixin.sogou.com",
+    "color": "green",
+    "interval": 600000,
+    "title": "科技资讯"
+  },
   "v2ex": {
     "redirect": "v2ex-share",
     "name": "V2EX",
