@@ -16,10 +16,15 @@ export const originSources = {
   "rsswechat": {
     name: "RSS@微信公众号",
     color: "green",
-    home: "https://weixin.sogou.com",
+    home: "http://10.10.101.241:4000/dash/feeds/",
     sub: {
-      tech: {
-        title: "科技资讯",
+      cailianshe: {
+        title: "财联社",
+        column: "china",
+        type: "realtime",
+      },
+      jimuxinwen: {
+        title: "极目新闻",
         column: "china",
         type: "realtime",
       },

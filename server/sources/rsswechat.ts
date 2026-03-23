@@ -1,36 +1,43 @@
-import { load } from "cheerio"
+import Parser from "rss-parser"
+import dayjs from "dayjs"
 import type { NewsItem } from "@shared/types"
 import { defineSource } from "#/utils/source"
 
-const fetchWechatFromRSS = defineSource(async () => {
-  const baseUrl = "http://10.10.101.241:4000/dash/feeds/"
-  const html: string = await myFetch(`${baseUrl}MP_WXS_2224497781`)
+function wechatRSSFactory(feedId = "") {
+  feedId = feedId ? `/${feedId}.xml` : ""
 
-  const $ = load(html)
-  const items: NewsItem[] = []
+  return defineSource(async () => {
+    const baseUrl = "http://10.10.101.241:4000"
 
-  const account = $("h3").text().trim()
+    const url = `${baseUrl}/feeds${feedId}`
 
-  $("table tbody tr").each((_, el) => {
-    const $tds = $(el).find("td")
+    const parser = new Parser()
+    const feed = await parser.parseURL(url)
 
-    const $a = $tds.eq(0).find("a")
-    const title = $a.text().trim()
-    const url = $a.attr("href") || ""
+    const items: NewsItem[] = feed.items.map((item) => {
+      const pubDate = item.pubDate ? dayjs(item.pubDate).format("YYYY-MM-DD HH:mm:ss") : ""
 
-    const date = $tds.eq(1).text().trim()
-
-    items.push({
-      id: url,
-      title,
-      url: url.startsWith("http") ? url : `https://weixin.sogou.com${url}`,
-      extra: { info: account, hover: date },
+      return {
+        id: item.link || "",
+        title: item.title || "",
+        url: item.link || "",
+        pubDate,
+        extra: {
+          info: feed.title || "",
+          hover: pubDate,
+          date: pubDate,
+        },
+      }
     })
-  })
 
-  return items
-})
+    return items
+  })
+}
+
+const fetchWechatFromCailianshe = wechatRSSFactory("MP_WXS_3893127105")
+const fetchWechatFromJimuxinwen = wechatRSSFactory("MP_WXS_2224497781")
 
 export default defineSource({
-  "rsswechat-tech": fetchWechatFromRSS,
+  "rsswechat-cailianshe": fetchWechatFromCailianshe,
+  "rsswechat-jimuxinwen": fetchWechatFromJimuxinwen,
 })

@@ -1,22 +1,31 @@
 {
   "rsswechat": {
-    "redirect": "rsswechat-tech",
+    "redirect": "rsswechat-cailianshe",
     "name": "RSS@微信公众号",
     "type": "realtime",
     "column": "china",
-    "home": "https://weixin.sogou.com",
+    "home": "http://10.10.101.241:4000/dash/feeds/",
     "color": "green",
     "interval": 600000,
-    "title": "科技资讯"
+    "title": "财联社"
   },
-  "rsswechat-tech": {
+  "rsswechat-cailianshe": {
     "name": "RSS@微信公众号",
     "type": "realtime",
     "column": "china",
-    "home": "https://weixin.sogou.com",
+    "home": "http://10.10.101.241:4000/dash/feeds/",
     "color": "green",
     "interval": 600000,
-    "title": "科技资讯"
+    "title": "财联社"
+  },
+  "rsswechat-jimuxinwen": {
+    "name": "RSS@微信公众号",
+    "type": "realtime",
+    "column": "china",
+    "home": "http://10.10.101.241:4000/dash/feeds/",
+    "color": "green",
+    "interval": 600000,
+    "title": "极目新闻"
   },
   "sougouwechat": {
     "redirect": "sougouwechat-tech",
